@@ -4,6 +4,8 @@
     CopyRight 2015 All Rights Reserved
 */
 
+include("./Utils/dateUtils.php");
+
 define("TOKEN", "weixin");
 
 $wechatObj = new wechatCallbackapiTest();
@@ -193,10 +195,10 @@ $item_str</Articles>
                                      'https://mmbiz.qlogo.cn/mmbiz/icdZ5NYAvaOvKVyZQIEuoYia5ptreV6Wnhe8zT0lYzeEInJEHSLqYQzf4Cw9LBqrCeWH84lfYHEqobYKjtKjC8rw/0?wx_fmt=jpeg', 
                                      'http://mp.weixin.qq.com/s?__biz=MzA5MjE1NjI1OA==&mid=210526708&idx=1&sn=9b46af73e86fc1789d4ce393054034d7#rd');
             }else {
-            	$item_str .= sprintf($itemTpl, $item['date'].' '.$item['temperature'].' '.$item['weather'].' '.$item['wind'], 
-                                     $item['date'].' '.$item['temperature'].' '.$item['weather'].' '.$item['wind'], 
-                                	 $item['dayPictureUrl'], 
-                                	 'http://mp.weixin.qq.com/s?__biz=MzA5MjE1NjI1OA==&mid=210526708&idx=1&sn=9b46af73e86fc1789d4ce393054034d7#rd');
+                $item_str .= sprintf($itemTpl, $item['date'].' '.$item['temperature'].' '.$item['weather'].' '.$item['wind'], 
+                                 $item['date'].' '.$item['temperature'].' '.$item['weather'].' '.$item['wind'], 
+                                 $this->dayOrNight() ? $item['dayPictureUrl'] : $item['nightPictureUrl'], 
+                                 'http://mp.weixin.qq.com/s?__biz=MzA5MjE1NjI1OA==&mid=210526708&idx=1&sn=9b46af73e86fc1789d4ce393054034d7#rd');
             }
 
         } 
@@ -219,6 +221,23 @@ $item_str</Articles>
     private function logger($log_content)
     {
       
+    }
+
+    private function dayOrNight() 
+    {
+        $d = date("H:i:sa");
+
+        $result = false;
+        if (strcmp($d, "06:00:00") > 0 & strcmp($d, "18:00:00") < 0) {
+            # code...
+            echo "白天" . "\n";
+            $result = true;
+        }else {
+            echo "黑夜" . "\n";
+            $result = false;
+        }
+
+        return $result;
     }
 }
 ?>
