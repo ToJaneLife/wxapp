@@ -85,7 +85,7 @@ class wechatCallbackapiTest
         switch ($object->Event)
         {
             case "subscribe":
-                $content = "Hi！我是至简生活，为您提供最新最全的天气信息！\n\n① 点击输入框 \n② 输入城市名（如：上海）\n③ 发送等回复";
+                $content = "Hi！我是致简生活，为您提供最新最全的天气信息！\n\n① 点击输入框 \n② 输入城市名（如：上海）\n③ 发送等回复";
                 break;
             case "unsubscribe":
             	$content = "再见！再也不见";
@@ -150,9 +150,9 @@ class wechatCallbackapiTest
         $item_str = "";
                         
         $item_str .= sprintf($itemTpl, 
-            '你可以到这里找工作', 
+            '你可以从这里找到好工作', 
             '不客气，祝你好运', 
-            'http://7xqhcq.com1.z0.glb.clouddn.com/zjlife/1455784621-2029397591_n.png',  
+            'http://omiz2siz5.bkt.clouddn.com/zj-weixin/coffee-2425275_640.jpg',  
             'https://luna.58.com/list.shtml?plat=m&city=sh&cate=job&-15=20&utm_source=link&spm=u-Lt2pHoBa1luDubj.mzp_qzzp_qb_hshportal_zgz01');      
         $newsTpl = "<xml>
             <ToUserName><![CDATA[%s]]></ToUserName>
@@ -202,7 +202,7 @@ class wechatCallbackapiTest
             
             $item_str = "";
                 
-            $item_str .= sprintf($itemTpl, 'Hi！我是至简生活，我把地球翻个遍儿也没找到 '.$keyword, '请输入正常的城市名',
+            $item_str .= sprintf($itemTpl, 'Hi！我是致简生活，我把地球翻个遍儿也没找到 '.$keyword, '请输入正常的城市名',
                                          'https://mmbiz.qlogo.cn/mmbiz/icdZ5NYAvaOvKVyZQIEuoYia5ptreV6Wnhe8zT0lYzeEInJEHSLqYQzf4Cw9LBqrCeWH84lfYHEqobYKjtKjC8rw/0?wx_fmt=jpeg', 
                                          'https://weidian.com/s/1202372938?wfr=c&ifr=shopdetail');      
             $newsTpl = "<xml>
@@ -314,7 +314,7 @@ $item_str</Articles>
                     
         $item_str = "";
                         
-        $item_str .= sprintf($itemTpl, '我是至简生活，给我发图片是什么意思', '请输入正常的城市名',
+        $item_str .= sprintf($itemTpl, '我是致简生活，给我发图片是什么意思', '请输入正常的城市名',
                                                  'http://7xqhcq.com1.z0.glb.clouddn.com/zjlife/CilEmlbI4_GAXd0TAADmniNS4gA215.jpg', 
                                                  'https://weidian.com/s/1202372938?wfr=c&ifr=shopdetail');      
         $newsTpl = "<xml>
